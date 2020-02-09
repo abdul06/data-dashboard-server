@@ -38,7 +38,8 @@ resources.md
 gcp.md
 .env
 data
-
+credentials.yaml
+cloud_sql_proxy
 # System Files
 .DS_Store
 Thumbs.db

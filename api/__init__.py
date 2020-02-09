@@ -2,12 +2,12 @@ from flask import Flask
 from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow 
-from api.config import Config
+from api.config import config_env
 
 db = SQLAlchemy()
 ma = Marshmallow()
 
-def create_app(config_class=Config):
+def create_app(config_name):
     """ create intance of rest api
 
     Attributes:
@@ -23,8 +23,7 @@ def create_app(config_class=Config):
     # setup app config
     app = Flask(__name__)
     CORS(app)
-    app.config.from_object(Config)
-    
+    app.config.from_object(config_env[config_name])
     # initialize db
     db.init_app(app)
     # Init ma
