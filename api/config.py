@@ -20,8 +20,9 @@ class ProductionConfig(Config):
     instance_name = os.environ.get("INSTANCE_NAME")
 
     SQLALCHEMY_TRACK_MODIFICATIONS = Config.SQLALCHEMY_TRACK_MODIFICATIONS
-    # pg8000, unix_sock
+    # # pg8000, unix_sock
     SQLALCHEMY_DATABASE_URI = 'postgres+pg8000://{user}:{password}@/{db_name}?unix_sock=/cloudsql/{instance_name}/.s.PGSQL.5432'.format(user=Config.db_user,password=Config.user_password,db_name=Config.db_name, instance_name=instance_name,port=Config.db_port)
+    # SQLALCHEMY_DATABASE_URI = 'postgres+psycopg2://{user}:{password}@/{db_name}?host=/cloudsql/{instance_name}'.format(user=DB_USER,password=DB_PASSWORD,db_name=DB_NAME, instance_name=INSTANCE_NAME,port=DB_PORT)
 
     
 
