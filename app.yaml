@@ -3,7 +3,13 @@ env: flex
 entrypoint: gunicorn -b :$PORT run:app
 
 runtime_config:
-  python_version: 3
+    python_version: 3
+
+beta_settings:
+    # cloud_sql_instances: <instance connection name>
+    cloud_sql_instances: bamboo-lane-267201:us-east1:data-dashboard-postgres
   
 includes:
-  - credentials.yaml
+    - credentials.yaml
+
+# gcloud app deploy app.yaml --promote
